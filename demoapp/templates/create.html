@@ -82,12 +82,12 @@
                     {% endfor %}
                 </select>
                 </td></tr>
-            <tr><td><label for="vnumber">Vehicle Number :</label><input type="text" name="vnumber" id="vnumber"></td></tr>
-            <tr><td><label for="vstatus">Vehicle Status :</label><input type="checkbox" name="vstatus" id="vstatus"></td></tr>
-            <tr><td><label for="vspeed">Vehicle Speed :</label><input type="text" name="vspeed"  id="vspeed"></td></tr>
-            <tr><td><label for="vaveragespeed">Vehicle Average Speed :</label><input type="text" name="vaveragespeed" id="vaveragespeed"></td></tr>
-            <tr><td><label for="vtemperature">Vehicle Temperature :</label><input type="text" name="vtemperature" id="vtemperature"></td></tr>
-            <tr><td><label for="vfuellevel">Vehicle Fuel Level :</label><input type="text" name="vfuellevel" id="vfuellevel"></td></tr>
+            <tr><td><label for="vnumber">Vehicle Number :</label><input type="text" name="vnumber" required id="vnumber"></td></tr>
+            <tr><td><label for="vstatus">Vehicle Status :</label><input type="checkbox" name="vstatus" required id="vstatus"></td></tr>
+            <tr><td><label for="vspeed">Vehicle Speed :</label><input type="text" name="vspeed" required id="vspeed"></td></tr>
+            <tr><td><label for="vaveragespeed">Vehicle Average Speed :</label><input type="text" required name="vaveragespeed" id="vaveragespeed"></td></tr>
+            <tr><td><label for="vtemperature">Vehicle Temperature :</label><input type="text" required name="vtemperature" id="vtemperature"></td></tr>
+            <tr><td><label for="vfuellevel">Vehicle Fuel Level :</label><input type="text" required name="vfuellevel" id="vfuellevel"></td></tr>
             <tr><td><label for="venginestatus">Vehicle Engine Status :</label>
               <select name="venginestatus" id="venginestatus" >    
                 {% for i in data2 %}
