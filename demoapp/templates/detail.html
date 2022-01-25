@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail</title>
+    <style>
+        * {
+          box-sizing: border-box;
+          
+        }
+        body {
+          
+          width: 99%;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        /* Style the header */
+        /* @media only screen and (max-width: 620px) { */
+          /* For mobile phones: */
+          /* .headerbar, .tablebar, .navbar {
+            width: 100%;
+          }
+        } */
+        
+        </style>
+</head>
+<body>
+    
+    <header class="headerbar" style="float: right;background-color: #666;padding: 20px;text-align: right;font-size: 20px;color: white;width: 80%;height: 100px;">
+
+      <p>{{data.Type}}|{{data.Number}}</p>
+    </header>
+    
+    <nav class="navbar" style="float: left;width: 20%;height: 700px; /* only for demonstration, should be removed */background: #ccc;padding: 20px;">
+      <div style="height: 100px;">
+       
+        <img src="{% static 'logop.png' %}" width="100%" height="80px"/>
+      </div>
+        <ul style="list-style-type: none;padding: 20px;">
+          <li><a href="{% url 'create.html' %}">Create</a></li>
+          <li><a href="{% url 'list.html' %}">Lists</a></li>
+          <li><a href="{% url 'about.html' %}">About Us</a></li>
+        </ul>
+    </nav>
+    <!-- main area -->
+    <div class="tablebar"  style="float: left;padding: 20px;width: 80%;background-color: #f1f1f1;height: 600px;text-align: center;">
+
+            <div>
+              <div style="width: 4%;background-color:black;height: 40px;float: left;border-radius: 100%;">
+                .
+              </div>
+              <div style="width: 15%;background-color: black;height: 40px;float: left;margin-left: 5%;">
+                <p style="color: white;">Camera 1</p> 
+              </div>
+              <div style="width: 15%;background-color:black;height: 40px;float: left;margin-left: 2%">
+                <p style="color: white;">Camera 2</p>
+              </div>
+              <form action="" method="post">
+                {% csrf_token %}
+                <div style="width: 15%;background-color: aqua;height: 40px;float: left;margin-left: 27%">
+                  <input type="hidden" name="offstatus" value="off" >
+                  <input style="width: 100%;height: 40px;" type="submit" value="OFF">
+                </div>
+              </form>
+              <form action="" method="post">
+                {% csrf_token %}
+                <div style="width: 15%;background-color: aqua;height: 40px;float: left;margin-left: 2%">
+                  <input type="hidden" name="onstatus" value="on" >
+                  <input style="width: 100%;height: 40px;" type="submit" value="ON">
+                </div>
+              </form>
+            </div>
+
+        
+            <div style="float: left;height: 320px;width: 66%;background-color: blue;text-align: center;border-radius: 25px;margin-top: 2%;">
+              <img src="{% static 'hisar.jpg' %}" border-radius=20% width="100%" height="100%"/>
+              </div> 
+             
+              
+            <div style="height: 150px;width: 32%;background-color: seagreen;margin-left: 2%;border-radius: 25px;padding-top: 60px;float: left;margin-top: 2%;">
+                Speed :{{data.Speed}}km/h</div>
+            <div style="height: 150px;width: 32%;background-color: seagreen;margin-left: 2%;margin-top: 2%;border-radius: 25px;padding-top: 60px;float: left;">
+                Average Speed :{{data.Averagespeed}}km/h</div>
+            
+            
+            <div style="background-color: seagreen;height: 150px;width: 32%;margin-top: 2%;border-radius: 25px;padding-top: 2%;float: left;">
+                Engine Status :{{data.Enginestatus}}</div>
+            <div style="background-color:seagreen;height: 150px;width: 32%;margin-left: 2%;border-radius: 25px;margin-top: 2%;padding-top: 2%;float: left;">
+                Fuel Level :{{data.Fuellevel}}</div>
+            <div style="background-color:seagreen;height: 150px;width: 32%;margin-left: 2%;border-radius: 25px;margin-top: 2%;padding-top: 2%;float: left;">
+                Temperature :{{data.Temperature}}</div>
+            
+           
+        </div>
+       
+            
+    </div>
+
+        
+    
+</body>
+</html>

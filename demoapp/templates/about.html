@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+          box-sizing: border-box;
+          
+        }
+        body {
+          
+          box-sizing: content-box;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        /* Style the header */
+        header {
+          float: right;
+          background-color: #666;
+          padding: 20px;
+          text-align: right;
+          font-size: 20px;
+          color: white;
+          width: 80%;
+          height: 100px;
+          /* height: 100px; */
+        }
+        /* Create two columns/boxes that floats next to each other */
+        nav {
+          float: left;
+          width: 20%;
+          height: 700px; /* only for demonstration, should be removed */
+          background: #ccc;
+          padding: 20px;
+        }
+        /* Style the list inside the menu */
+        nav ul {
+          list-style-type: none;
+          padding: 0;
+        }
+        form {
+          float: left;
+          padding: 20px;
+          width: 80%;
+          background-color: #f1f1f1;
+          height: 600px; /* only for demonstration, should be removed */
+        }
+        /* Clear floats after the columns */
+        section::after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        /* Style the footer */
+        footer {
+          background-color: #777;
+          padding: 10px;
+          text-align: center;
+          color: white;
+        }
+        </style>
+</head>
+<body>
+    <!-- heading area -->
+    <header>
+      <p>the header</p>
+    </header>
+    <!-- side area -->
+    <nav>
+      <div style="height: 100px;">
+        <p>hello</p>
+      </div>
+        <ul>
+          <li><a href="{% url 'create.html' %}">Create</a></li>
+          <li><a href="{% url 'list.html' %}">Lists</a></li>
+          <li><a href="{% url 'about.html' %}">About Us</a></li>
+        </ul>
+    </nav>
+    <!-- main area -->
+    <table>
+        <th>THANKS</th>
+        <th>FOR VISITING</th>
+    </table>
+        
+    
+</body>
+</html>

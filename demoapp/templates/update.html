@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+    <style>
+        * {
+          box-sizing: border-box;
+          
+        }
+        body {
+          
+          box-sizing: content-box;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        /* Style the header */
+        header {
+          float: right;
+          background-color: #666;
+          padding: 20px;
+          text-align: right;
+          font-size: 20px;
+          color: white;
+          width: 80%;
+          height: 100px;
+          /* height: 100px; */
+        }
+        /* Create two columns/boxes that floats next to each other */
+        nav {
+          float: left;
+          width: 20%;
+          height: 700px; /* only for demonstration, should be removed */
+          background: #ccc;
+          padding: 20px;
+        }
+        /* Style the list inside the menu */
+        nav ul {
+          list-style-type: none;
+          padding: 0;
+        }
+      
+        /* Clear floats after the columns */
+        section::after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        /* Style the footer */
+        footer {
+          background-color: #777;
+          padding: 10px;
+          text-align: center;
+          color: white;
+        }
+        </style>
+</head>
+<body>
+    <header>
+      <p>Update Vehicle</p>
+    </header>
+    <nav>
+      <div style="height: 100px;">
+        <p>hello</p>
+      </div>
+        <ul>
+          <li><a href="{% url 'create.html' %}">Create</a></li>
+          <li><a href="{% url 'list.html' %}">Lists</a></li>
+          <li><a href="{% url 'about.html' %}">About Us</a></li>
+        </ul>
+      </nav>
+    <form action="" method="post" style="float: left;padding: 20px;width: 80%;background-color: #f1f1f1;height: 600px;">
+        {% csrf_token %}
+        <table style="padding: 20px;width: 1030px;background-color:darkgoldenrod;height: 560px;">
+            <tr><td><label for="cars">Vehicle Type :</label>
+            <select name="vtype" id="cars" >   
+                {% for i in data1 %}
+                    {% if data.Type == i.0 %}
+                    <option value="{{i.0}}" selected>{{i.0}}</option>
+                    {% else %}
+                    <option value="{{i.0}}">{{i.0}}</option>
+                    {% endif %}
+                {% endfor %} 
+            </select>    
+            </td></tr>
+            <tr><td><label for="vnumber">Vehicle Type :</label><input value="{{data.Number}}" type="text" name="vnumber" id="vnumber"></td></tr>
+            <tr><td><label for="vstatus">Vehicle Status :</label><input value="{{data.Status}}" type="checkbox" name="vstatus" id="vstatus"></td></tr>
+            <tr><td><label for="vspeed">Vehicle Speed :</label><input value="{{data.Speed}}" type="text" name="vspeed"  id="vspeed"></td></tr>
+            <tr><td><label for="vaveragespeed">Vehicle Average Speed :</label><input value="{{data.Averagespeed}}" type="text" name="vaveragespeed" id="vaveragespeed"></td></tr>
+            <tr><td><label for="vtemperature">Vehicle Temperature :</label><input value="{{data.Temperature}}" type="text" name="vtemperature" id="vtemperature"></td></tr>
+            <tr><td><label for="vfuellevel">Vehicle Fuel Level :</label><input value="{{data.Fuellevel}}" type="text" name="vfuellevel" id="vfuellevel"></td></tr>
+            <tr><td><label for="venginestatus">Vehicle Engine Status :</label>
+              <select name="venginestatus" id="venginestatus" >    
+                {% for i in data2 %}
+                    {% if data.Enginestatus == i.0 %}
+                    <option value="{{i.0}}" selected>{{i.0}}</option>
+                    {% else %}
+                    <option value="{{i.0}}">{{i.0}}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+            </td></tr>
+            <tr style="margin-top: 100px;">
+                  <td>
+                  <div style="float: left;margin-top: 100px;"><input type="reset" value="Clear"></div>
+                  </td>
+                  <td>
+                  <div style="float: right;margin-top: 100px;"><input type="submit" value="Update"></div>
+                  </td>
+            </tr>
+            
+        </table>
+    </form>
+</body>
+</html>
